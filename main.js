@@ -1,29 +1,63 @@
-function calc(test) {
-    const n1 = parseFloat(document.querySelector(".num1").value);
-    const n2 = parseFloat(document.querySelector(".num2").value);
-    const kqBox = document.querySelector(".kq");
+const display = document.getElementById("display");
+const clearBtn = document.getElementById("clear");
 
-    if (isNaN(n1) || isNaN(n2)) {
-        kqBox.innerHTML = "không đủ dữ kiện";
-        kqBox.style.color = "red";
-        return;
+function setClear(type) {
+    clearBtn.innerText = type;
+}
+
+function append(value) {
+    setClear("C");
+
+    if (display.innerText === "0") {
+        display.innerText = value;
+    } 
+    else {
+        display.innerText += value;
     }
+}
 
-    if (test === "/" && n2 === 0) {
-        kqBox.innerHTML = "Không chia được cho 0";
-        kqBox.style.color = "red";
-        return;
+function clearAll() {
+    display.innerText = "0";
+    setClear("AC");
+}
+
+function del() {
+    setClear("C");
+
+    if (display.innerText.length === 1) {
+        display.innerText = "0";
+    } 
+    else {
+        display.innerText = display.innerText.slice(0, -1);
     }
+}
 
-    let kq;
-
-    switch (test) {
-        case "+": kq = n1 + n2; break;
-        case "-": kq = n1 - n2; break;
-        case "*": kq = n1 * n2; break;
-        case "/": kq = n1 / n2; break;
+function calculate() {
+    try {
+        display.innerText = eval(display.innerText.replace('%', '/100'));
+        setClear("AC");
+    } 
+    catch {
+        display.innerText = "Error";
+        setClear("AC");
     }
+}
 
-    kqBox.innerHTML = `Kết quả: ${parseFloat(kq.toFixed(10))}`;
-    kqBox.style.color = "green";
+function reciprocal() {
+    setClear("C");
+    let x = Number(display.innerText);
+    if (x !== 0) display.innerText = 1 / x;
+}
+
+// √x
+function sqrt() {
+    setClear("C");
+    let x = Number(display.innerText);
+    if (x >= 0) display.innerText = Math.sqrt(x);
+}
+
+// xʸ
+function power() {
+    setClear("C");
+    display.innerText += "**";
 }

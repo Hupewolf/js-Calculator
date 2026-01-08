@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>HUHU</title>
+    <title>calculator</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Máy tính tính toán</h2>
-
-        <input type="number" class="num1" placeholder="Nhập số thứ 1">
-        <input type="number" class="num2" placeholder="Nhập số thứ 2">
+    <div class="calculator">
+        <div class="display" id="display">0</div>
 
         <div class="buttons">
-            <button onclick="calc('+')">+</button>
-            <button onclick="calc('-')">-</button>
-            <button onclick="calc('*')">x</button>
-            <button onclick="calc('/')">÷</button>
-        </div>
+            <button class="orange" id="clear" onclick="clearAll()">AC</button>
+            <button class="orange" onclick="del()"><img src="img/Vector.svg"></button>
+            <button class="orange" onclick="append('%')">%</button>
+            <div></div>
 
-        <div class="box">
-            <p class="kq"></p>
+            <button class="gray" onclick="reciprocal()">1/x</button>
+            <button onclick="power()">x^y</button>
+            <button class="gray" onclick="sqrt()">√x</button>
+            <button class="orange" onclick="append('/')">÷</button>
+
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button class="orange" onclick="append('*')">x</button>
+
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button class="orange" onclick="append('-')">-</button>
+
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button class="orange" onclick="append('+')">+</button>
+
+            <button class="zero" onclick="append('0')">0</button>
+            <button onclick="append('.')">,</button>
+            <button class="orangebr" onclick="calculate()">=</button>
         </div>
     </div>   
     <script src="main.js"></script> 
