@@ -11,13 +11,13 @@
         <div class="display" id="display">0</div>
 
         <div class="buttons">
-            <button class="orange" id="clear" onclick="clearAll()">AC</button>
+            <button class="orange zero" id="clear" onclick="clearAll()">AC</button>
             <button class="orange" onclick="del()"><img src="img/Vector.svg"></button>
             <button class="orange" onclick="append('%')">%</button>
-            <div></div>
+            
 
             <button class="gray" onclick="reciprocal()">1/x</button>
-            <button onclick="power()">x^y</button>
+            <button onclick="power()">x<sup>y</sup></button>
             <button class="gray" onclick="sqrt()">√x</button>
             <button class="orange" onclick="append('/')">÷</button>
 
@@ -36,9 +36,9 @@
             <button onclick="append('3')">3</button>
             <button class="orange" onclick="append('+')">+</button>
 
-            <button class="zero" onclick="append('0')">0</button>
+            <button onclick="append('0')">0</button>
             <button onclick="append('.')">,</button>
-            <button class="orangebr" onclick="calculate()">=</button>
+            <button class="orangebr zero" onclick="calculate()">=</button>
         </div>
     </div>   
     <script src="main.js"></script> 

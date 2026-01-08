@@ -42,21 +42,21 @@ function calculate() {
         setClear("AC");
     }
 }
-
+// phân số
 function reciprocal() {
     setClear("C");
     let x = Number(display.innerText);
     if (x !== 0) display.innerText = 1 / x;
 }
 
-// √x
+// căn
 function sqrt() {
     setClear("C");
     let x = Number(display.innerText);
     if (x >= 0) display.innerText = Math.sqrt(x);
 }
 
-// xʸ
+// mũ
 function power() {
     setClear("C");
     display.innerText += "**";
