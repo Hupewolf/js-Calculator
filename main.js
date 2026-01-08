@@ -1,11 +1,13 @@
 const display = document.getElementById("display");
 const clearBtn = document.getElementById("clear");
+let error = false;
 
 function setClear(type) {
     clearBtn.innerText = type;
 }
 
 function append(value) {
+    if (error) return;
     setClear("C");
 
     if (display.innerText === "0") {
@@ -22,6 +24,7 @@ function clearAll() {
 }
 
 function del() {
+    if (error) return;
     setClear("C");
 
     if (display.innerText.length === 1) {
@@ -33,17 +36,21 @@ function del() {
 }
 
 function calculate() {
+    if (error) return;
     try {
         display.innerText = eval(display.innerText.replace('%', '/100'));
         setClear("AC");
+        error = false;
     } 
     catch {
-        display.innerText = "Error";
+        display.innerText = "Error (click AC)";
         setClear("AC");
+        error = true;
     }
 }
 // phân số
 function reciprocal() {
+    if (error) return;
     setClear("C");
     let x = Number(display.innerText);
     if (x !== 0) display.innerText = 1 / x;
@@ -51,6 +58,7 @@ function reciprocal() {
 
 // căn
 function sqrt() {
+    if (error) return;
     setClear("C");
     let x = Number(display.innerText);
     if (x >= 0) display.innerText = Math.sqrt(x);
@@ -58,6 +66,7 @@ function sqrt() {
 
 // mũ
 function power() {
+    if (error) return;
     setClear("C");
     display.innerText += "**";
 }
